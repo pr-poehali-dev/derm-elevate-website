@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -36,6 +37,7 @@ const Scholarships = () => {
       website: 'www.dermelevate.org',
       notes: 'Google Doc Application',
       category: 'High School',
+      detailsLink: '/scholarships/alex-gross',
     },
     {
       name: 'Toni McCullough HS Equity Scholarship',
@@ -185,9 +187,20 @@ const Scholarships = () => {
                     </div>
                   </div>
 
-                  <Button className="w-full mt-6 bg-primary hover:bg-primary/90">
-                    Apply
-                  </Button>
+                  {scholarship.detailsLink ? (
+                    <div className="flex flex-col gap-2 mt-6">
+                      <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                        <Link to={scholarship.detailsLink}>
+                          <Icon name="Info" size={16} className="mr-2" />
+                          View Details
+                        </Link>
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button className="w-full mt-6 bg-primary hover:bg-primary/90">
+                      Apply
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}

@@ -8,7 +8,7 @@ const Header = () => {
     { label: 'Home', path: '/' },
     { label: 'Scholarships', path: '/scholarships' },
     { label: 'College Scholarship Application', path: '/application' },
-    { label: 'Mentorship', path: '/mentorship' },
+    { label: 'Board of Directors', path: '/board' },
     { label: 'About', path: '/about' },
   ];
 
